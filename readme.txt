@@ -4,6 +4,18 @@ Overview
 - deployed on elastic beanstalk
 - JDK: corretto 17
 
+Dependencies
+- starter web
+- actuator
+- hateoas
+- spring security
+- devtools
+- mySQL connector
+- JPA
+- test
+- Spring security
+- oauth2 resource server
+
 Beans
 -Movie bean
 -Award bean
