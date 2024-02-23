@@ -20,7 +20,6 @@ public class TmdbApiController {
     @GetMapping("/movies/search")
     public ResponseEntity<String> searchMovies(
             @RequestParam String query,
-            @RequestParam(defaultValue = "false") boolean includeAdult,
             @RequestParam(required = false) String language,
             @RequestParam(required = false) String primaryReleaseYear,
             @RequestParam(defaultValue = "1") int page,

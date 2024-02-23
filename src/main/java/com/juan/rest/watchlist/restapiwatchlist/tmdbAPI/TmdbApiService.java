@@ -12,7 +12,7 @@ import java.io.IOException;
 public class TmdbApiService {
 
     private final OkHttpClient client;
-    private static final String TOKEN = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTg3MjUyMTc1MTdmM2ZjNTE4NGQ1NzhiOTZlMjVlYyIsInN1YiI6IjY0OGM0ZTI4MDc2Y2U4MDE0NDI1NzdhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7rDmZS7BMcXmib8FRlL-1_krO4KG0GAgyHnqxOTHk9E";
+    private static final String TOKEN = "";
 
     public TmdbApiService() {
         this.client = new OkHttpClient();
