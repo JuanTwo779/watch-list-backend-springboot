@@ -45,6 +45,9 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableMethodSecurity
 public class JwtSecurityConfig {
 
+    private final String username = "";
+    private final String password = "";
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
@@ -85,8 +88,8 @@ public class JwtSecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails user = User.withUsername("juan")
-                                .password("{noop}Astig-09")
+        UserDetails user = User.withUsername(username)
+                                .password("{noop}"+password)
                                 .authorities("read")
                                 .roles("USER")
                                 .build();

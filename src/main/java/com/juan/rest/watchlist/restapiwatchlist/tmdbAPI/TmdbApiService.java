@@ -12,27 +12,32 @@ import java.io.IOException;
 public class TmdbApiService {
 
     private final OkHttpClient client;
+    private String baseUrl = "https://api.themoviedb.org/3/search/movie";
     private static final String TOKEN = "";
-
     public TmdbApiService() {
         this.client = new OkHttpClient();
     }
 
     public String searchMovies(String query, String language, String primaryReleaseYear, Integer page, String region, String year) throws IOException {
 
-        String url = "https://api.themoviedb.org/3/search/movie";
+        String url = baseUrl;
 
         if (query != null){
             url = url + "?query=" + query;
-        } else if (language != null) {
+        }
+        if (language != null) {
             url = url + "&language=" + language;
-        } else if (primaryReleaseYear != null) {
+        }
+        if (primaryReleaseYear != null) {
             url = url + "&primary_release_year=" + primaryReleaseYear;
-        } else if (page != null) {
+        }
+        if (page != null) {
             url = url + "&page=" + page;
-        } else if (region != null) {
+        }
+        if (region != null) {
             url = url + "&region=" + region;
-        } else if (year != null) {
+        }
+        if (year != null) {
             url = url + "&year=" + year;
         }
 
@@ -51,5 +56,9 @@ public class TmdbApiService {
             }
         }
 
+    }
+
+    public void setBaseUrl(String url) {
+        this.baseUrl = url;
     }
 }

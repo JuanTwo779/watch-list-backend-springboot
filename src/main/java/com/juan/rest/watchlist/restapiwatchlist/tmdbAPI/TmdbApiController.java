@@ -28,7 +28,6 @@ public class TmdbApiController {
     ) {
         try {
             String searchResult = tmdbApiService.searchMovies(query,language,primaryReleaseYear,page,region,year);
-            // Return the search result as a ResponseEntity with status code 200 (OK)
             return ResponseEntity.ok(searchResult);
         } catch (IOException e) {
             return ResponseEntity.status(500).body("Error occurred: " + e.getMessage());
