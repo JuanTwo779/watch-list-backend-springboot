@@ -23,13 +23,13 @@ Beans
 
 Spring Security
 - JWT configuration
-- username: juan
-= password: Astig-09
+- username: 
+= password: 
 
 JSON Shortcuts
 {
-    "username": "juan",
-    "password": "Astig-09"
+    "username": 
+    "password": 
 }
 {
     "id": 1,
