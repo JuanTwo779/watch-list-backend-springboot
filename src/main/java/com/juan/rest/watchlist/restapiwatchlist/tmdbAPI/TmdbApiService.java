@@ -13,7 +13,7 @@ public class TmdbApiService {
 
     private final OkHttpClient client;
     private String baseUrl = "https://api.themoviedb.org/3/search/movie";
-    private static final String TOKEN = "";
+    private static final String TOKEN = System.getenv("TmdbToken");
     public TmdbApiService() {
         this.client = new OkHttpClient();
     }
