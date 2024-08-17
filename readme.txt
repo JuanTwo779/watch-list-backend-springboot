@@ -51,18 +51,18 @@ JSON Shortcuts
 
 DOCKER (Local)
 docker run --detach
---env MYSQL_ROOT_PASSWORD=DBpassword-09
---env MYSQL_USER=watchlist-user
---env MYSQL_PASSWORD=DBpassword-09
---env MYSQL_DATABASE=watchlist-database
---name mysqlWatchList
+--env MYSQL_ROOT_PASSWORD=__
+--env MYSQL_USER=__
+--env MYSQL_PASSWORD=__
+--env MYSQL_DATABASE=__
+--name __
 --publish 3309:3306
 mysql:8-oracle
 
 mySQL (Local)
 - \connect watchlist-user@localhost:3309
-- pw: DBpassword-09
-- db: watchlist-database
+- pw: __
+- db: __
 
 AWS deployment
 - rest API on elastic beanstalk
