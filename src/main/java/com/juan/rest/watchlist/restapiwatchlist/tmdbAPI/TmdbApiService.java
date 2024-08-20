@@ -75,7 +75,7 @@ public class TmdbApiService {
 //                .url("https://api.themoviedb.org/3/movie/2/credits?language=en-US")
 //                .get()
 //                .addHeader("accept", "application/json")
-//                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTg3MjUyMTc1MTdmM2ZjNTE4NGQ1NzhiOTZlMjVlYyIsIm5iZiI6MTcyNDA3NDAyMy4xODk0MDgsInN1YiI6IjY0OGM0ZTI4MDc2Y2U4MDE0NDI1NzdhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZoaFlgWf5soTOOJ1ikWI2qdcUTpQ_w2i7XtWR1vHihE")
+//                .addHeader("Authorization", "")
 //                .build();
 
         try(Response response = client.newCall(request).execute()){
