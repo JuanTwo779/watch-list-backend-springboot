@@ -12,7 +12,7 @@ import java.io.IOException;
 public class TmdbApiService {
 
     private final OkHttpClient client;
-    private String baseUrl = "https://api.themoviedb.org/3/search/movie";
+    private final String baseUrl = "https://api.themoviedb.org/3/";
     private static final String TOKEN = System.getenv("TmdbToken");
     public TmdbApiService() {
         this.client = new OkHttpClient();
@@ -20,7 +20,7 @@ public class TmdbApiService {
 
     public String searchMovies(String query, String language, String primaryReleaseYear, Integer page, String region, String year) throws IOException {
 
-        String url = baseUrl;
+        String url = baseUrl + "search/movie";
 
         if (query != null){
             url = url + "?query=" + query;
@@ -50,6 +50,7 @@ public class TmdbApiService {
 
         try(Response response = client.newCall(request).execute()){
             if (response.isSuccessful()){
+                assert response.body() != null;
                 return response.body().string();
             } else {
                 throw new IOException("HTTP error " + response.code() + " - " + response.message());
@@ -58,7 +59,33 @@ public class TmdbApiService {
 
     }
 
-    public void setBaseUrl(String url) {
-        this.baseUrl = url;
+    //get movie credits
+    public String getMovieCredits(int movieId) throws IOException {
+
+        String url = baseUrl + "/movie/" + movieId + "/credits?language=en-US";
+
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .addHeader("accept", "application/json")
+                .addHeader("Authorization", TOKEN)
+                .build();
+
+//        Request request = new Request.Builder()
+//                .url("https://api.themoviedb.org/3/movie/2/credits?language=en-US")
+//                .get()
+//                .addHeader("accept", "application/json")
+//                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTg3MjUyMTc1MTdmM2ZjNTE4NGQ1NzhiOTZlMjVlYyIsIm5iZiI6MTcyNDA3NDAyMy4xODk0MDgsInN1YiI6IjY0OGM0ZTI4MDc2Y2U4MDE0NDI1NzdhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZoaFlgWf5soTOOJ1ikWI2qdcUTpQ_w2i7XtWR1vHihE")
+//                .build();
+
+        try(Response response = client.newCall(request).execute()){
+            if (response.isSuccessful()){
+                assert response.body() != null;
+                return response.body().string();
+            } else {
+                throw new IOException("HTTP error " + response.code() + " - " + response.message());
+            }
+        }
+
     }
 }

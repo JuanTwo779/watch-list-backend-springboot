@@ -2,9 +2,7 @@ package com.juan.rest.watchlist.restapiwatchlist.tmdbAPI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -30,6 +28,17 @@ public class TmdbApiController {
             String searchResult = tmdbApiService.searchMovies(query,language,primaryReleaseYear,page,region,year);
             return ResponseEntity.ok(searchResult);
         } catch (IOException e) {
+            return ResponseEntity.status(500).body("Error occurred: " + e.getMessage());
+        }
+    }
+
+    //get movie details
+    @GetMapping("/movies/credits")
+    public ResponseEntity<String> getMovieCredits(@RequestParam Integer movieId){
+        try{
+            String credits = tmdbApiService.getMovieCredits(movieId);
+            return ResponseEntity.ok(credits);
+        }catch (IOException e){
             return ResponseEntity.status(500).body("Error occurred: " + e.getMessage());
         }
     }
