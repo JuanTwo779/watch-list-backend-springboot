@@ -32,13 +32,24 @@ public class TmdbApiController {
         }
     }
 
-    //get movie details
+    //get movie credits
     @GetMapping("/movies/credits")
     public ResponseEntity<String> getMovieCredits(@RequestParam Integer movieId){
         try{
             String credits = tmdbApiService.getMovieCredits(movieId);
             return ResponseEntity.ok(credits);
         }catch (IOException e){
+            return ResponseEntity.status(500).body("Error occurred: " + e.getMessage());
+        }
+    }
+
+    //get movie details
+    @GetMapping("/movies/details")
+    public ResponseEntity<String> getMovieDetails(@RequestParam Integer movieId){
+        try {
+            String details = tmdbApiService.getMovieDetails(movieId);
+            return  ResponseEntity.ok(details);
+        } catch (IOException e){
             return ResponseEntity.status(500).body("Error occurred: " + e.getMessage());
         }
     }

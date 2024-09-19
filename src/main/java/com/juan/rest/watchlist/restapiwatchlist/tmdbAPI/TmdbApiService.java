@@ -88,4 +88,25 @@ public class TmdbApiService {
         }
 
     }
+
+    public String getMovieDetails(Integer movieId) throws IOException{
+        String url = baseUrl + "/movie/" + movieId + "?language=en-US";
+
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .addHeader("accept", "application/json")
+                .addHeader("Authorization", TOKEN)
+                .build();
+
+        try(Response response = client.newCall(request).execute()){
+            if (response.isSuccessful()){
+                assert response.body() != null;
+                return response.body().string();
+            } else {
+                throw new IOException("HTTP error " + response.code() + " - " + response.message());
+            }
+        }
+
+    }
 }
