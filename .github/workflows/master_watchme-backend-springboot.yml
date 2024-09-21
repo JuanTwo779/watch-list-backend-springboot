@@ -34,6 +34,9 @@ jobs:
           DbUrl: ${{ secrets.DbUrl }}
           DbUser: ${{ secrets.DbUser }}
           DbPassword: ${{ secrets.DbPassword }}
+          SecPassword: ${{ secrets.SecPassword }}
+          SecUsername: ${{ secrets.SecUsername }}
+          TmdbToken: ${{ secrets.TmdbToken }}
         
 
   deploy:
