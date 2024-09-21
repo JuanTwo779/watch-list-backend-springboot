@@ -27,4 +27,12 @@ public class DemoController {
     public DemoBean demoBeanPathVariable(@PathVariable String name) {
         return new DemoBean(String.format("Hello World, %s", name));
     }
+
+    @GetMapping(path = "/db")
+    public String getDbValues(){
+        return "url: " + System.getenv("DbUrl") +
+                " user:" + System.getenv("DbUser") +
+                " pw:" + System.getenv("DbPassword");
+
+    }
 }
