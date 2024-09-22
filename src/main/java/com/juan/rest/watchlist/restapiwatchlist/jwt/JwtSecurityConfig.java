@@ -42,8 +42,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableMethodSecurity
 public class JwtSecurityConfig {
 
-    private final String username = System.getenv("SecUsername");
-    private final String password = System.getenv("SecPassword");
+    private final String username = "Juan";
+    private final String password = "Hansosjsneia-09";
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
