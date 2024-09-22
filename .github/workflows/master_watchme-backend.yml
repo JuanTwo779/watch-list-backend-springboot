@@ -60,4 +60,11 @@ jobs:
           app-name: 'watchme-backend'
           slot-name: 'Production'
           package: '*.jar'
+        env:
+          DbUrl: ${{ secrets.DbUrl }}
+          DbUser: ${{ secrets.DbUser }}
+          DbPassword: ${{ secrets.DbPassword }}
+          SecUsername: ${{ secrets.SecUsername }}
+          SecPassword: ${{ secrets.SecPassword }}
+          TmdbToken: ${{ secrets.TmdbToken }}
           
