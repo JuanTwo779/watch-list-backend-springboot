@@ -30,14 +30,6 @@ jobs:
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
-        env:
-          DbUrl: ${{ secrets.DbUrl }}
-          DbUser: ${{ secrets.DbUser }}
-          DbPassword: ${{ secrets.DbPassword }}
-          SecPassword: ${{ secrets.SecPassword }}
-          SecUsername: ${{ secrets.SecUsername }}
-          TmdbToken: ${{ secrets.TmdbToken }}
-        
 
   deploy:
     runs-on: windows-latest
