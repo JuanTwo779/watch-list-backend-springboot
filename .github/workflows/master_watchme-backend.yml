@@ -61,9 +61,9 @@ jobs:
           slot-name: 'Production'
           package: '*.jar'
         env:
-          DbUrl: ${{ secrets.DbUrl }}
-          DbUser: ${{ secrets.DbUser }}
-          DbPassword: ${{ secrets.DbPassword }}
+          DB_URL: ${{ secrets.DB_URL }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           SecUsername: ${{ secrets.SecUsername }}
           SecPassword: ${{ secrets.SecPassword }}
           TmdbToken: ${{ secrets.TmdbToken }}
