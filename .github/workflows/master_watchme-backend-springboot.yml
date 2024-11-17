@@ -60,15 +60,3 @@ jobs:
           app-name: 'watchme-backend-springboot'
           slot-name: 'Production'
           package: '*.jar'
-
-      - name: Set environment variables in Azure Web App
-        run: |
-          az webapp config appsettings set --name watchme-backend-springboot \
-          --resource-group WatchMe \
-          --settings DbUrl=${{ secrets.DbUrl }} \
-                    DbUser=${{ secrets.DbUser }} \
-                    DbPassword=${{ secrets.DbPassword }} \
-                    SecUsername=${{ secrets.SecUsername }} \
-                    SecPassword=${{ secrets.SecPassword }} \
-                    TmdbToken=${{ secrets.TmdbToken }}
-
