@@ -1,4 +1,4 @@
-# Movie Watchlist REST API
+# Movie Watchlist Backend + REST API
 
 ## **Overview**
 This project provides a RESTful API for managing a movie watchlist. It connects to a MySQL database and is deployed on Azure Web App Service. Built with Java 17, it allows users to manage movies and their associated awards securely.
